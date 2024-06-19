@@ -1,0 +1,84 @@
+@use "sass:math";
+@use "sass:map";
+
+$body-color: #212529;
+$text-white:#fff;
+$thead-light:#e9ecef;
+$table-dark-border-color:#212529;
+
+$table-hover-color: #f1f1f1;
+$table-padding:1rem;
+$table-padding-sm: 0.9rem;
+
+$table-styles: (
+  'dark': (
+    'bg': $body-color,
+    'color': $text-white,
+    'border-color': $table-dark-border-color
+  ),
+//   'striped':(
+//     'bg':$thead-light
+//   )
+  
+);
+
+
+$header-styles: (
+  'light': $thead-light,
+  'dark': $body-color
+);
+
+$header-colors: (
+  'light': $body-color,
+  'dark': $text-white
+);
+
+$table-striped:(
+    'striped': $thead-light,
+);
+$table-sm:(
+'sm': $table-padding-sm
+);
+$table-bordered: (
+  'bordered':  $table-border-width solid $table-border-color 
+);
+
+
+
+$active-color:rgba(0,0,0,.075);
+$primary-color:#b8daff;
+$secondary-color:#d6d8db;
+$success-color:#c3e6cb;
+$danger-color:#f5c6cb;
+$warning-color:#ffeeba;
+$info-color:#bee5eb;
+$light-color:#fdfdfe;
+$dark-color:#32383e;
+
+$colors:(
+  "active":$active-color,
+  "primary": $primary-color,
+  "secondary": $secondary-color,
+  "success": $success-color,
+  "danger": $danger-color,
+  "warning": $warning-color,
+  "info": $info-color,
+  "light": $light-color,
+  "dark": $dark-color,
+);
+
+
+$bg-primary-color: #007bff;
+$bg-success-color: #28a745;
+$bg-danger-color: #17a2b8;
+$bg-warning-color:#ffc107;
+$bg-info-color:#dc3545;
+
+$warm-colors:(
+  "primary": $bg-primary-color,
+  "success": $bg-success-color,
+  "danger": $bg-danger-color,
+  "warning": $bg-warning-color,
+  "info": $bg-info-color,
+)
+

@@ -1,0 +1,141 @@
+
+// @import 'variables';
+  
+// @import 'colors';
+
+// body{
+//   margin-left: auto;
+//   margin-right: auto;
+//     width: 1000px;
+// }
+// .table {
+//     width: 100%;
+//     margin-bottom: 1rem;
+//     color: $body-color;
+//     background-color: $table-bg;
+//     // border: $table-border-width solid $table-border-color;
+    
+//     th, td {
+//         padding: 0.75rem;
+//         vertical-align: top;
+//         border-top: $table-border-width solid $table-border-color;
+//     }
+
+// }
+// .table-dark{
+//     background-color: $body-color ;
+//     color: $text-white;
+//     th, td {
+
+//         border-top: $table-border-width solid $table-dark-border-color;
+//     }
+
+// }
+
+@import 'variables';
+
+@import 'breakpoints';
+@import 'grid';
+
+@import 'colors';
+
+body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+}
+
+@mixin table-styles($bg-color, $text-color, $border-color) {
+  background-color: $bg-color;
+  color: $text-color;
+
+  th,
+  td {
+    padding: 1rem;
+    border-top: $table-border-width solid $border-color;
+  }
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  @include table-styles($table-bg, $body-color, $table-border-color);
+
+}
+
+@each $style-name, $style-values in $table-styles {
+  .table-#{$style-name} {
+    @include table-styles(
+      map-get($style-values, 'bg'),
+      map-get($style-values, 'color'),
+      map-get($style-values, 'border-color')
+    );
+  }
+}
+
+
+  @each $key, $value in $header-styles {
+    .thead-#{$key} {
+     background-color: $value;
+    }
+  }
+
+  @each $key, $value in $header-colors {
+    .thead-#{$key} {
+     color: $value;
+    }
+  }
+
+
+  @each $key, $value in $table-striped {
+    .table-#{$key} {
+        tbody tr:nth-of-type(odd) {
+            background-color: $value;
+          }
+    }
+  }
+
+  @each $key, $value in $table-bordered {
+    .table-#{$key} {
+      border-collapse: collapse;
+  
+      border: $value;
+  
+      th, td {
+        border: $value;
+      }
+    }
+  }
+
+
+  .table-hover tbody tr:hover {
+    background-color: $table-hover-color; 
+  }
+
+  @each $key, $value in $table-sm{
+    .table-#{$key} {
+    padding: $value;
+    }
+  }
+
+
+
+
+  @each $key, $value in $colors {
+    .table-#{$key} {
+      background-color: $value;
+    }
+  }
+
+  @each $key, $value in $warm-colors {
+    .bg-#{$key} {
+      background-color: $value;
+    }
+  }
+
+
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
